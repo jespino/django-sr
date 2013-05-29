@@ -13,7 +13,7 @@ You can also install it with: ``pip install django-sr``
 Configuration
 -------------
 
-Add the sr app to your installed apps and define your settings SR variable as a dictionary.
+Add the sr app to your installed apps and define your settings :code:`SR` variable as a dictionary.
 
 Example::
 
@@ -35,11 +35,16 @@ Example::
 Usage
 -----
 
-You can use this directly from templates with the sr template tag. Example::
+You can use this directly from templates with the :code:`sr` template tag. Example::
 
   {% load sr %}
   <span class="phone">{% sr footer.phone %}</span>
-  <span class="other">{% sr footer.other_text "text" %}</span>
+  <span class="other">{% sr footer.other_text 'text' %}</span>
+
+You can use this from django-jinja templates using directily the :code:`sr` function. Example::
+
+  <span class="phone">{% sr('footer.phone') %}</span>
+  <span class="other">{% sr('footer.other_text', 'text') %}</span>
 
 You can use it directly from your code. Example::
 
