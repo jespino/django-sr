@@ -1,0 +1,4 @@
+SECRET_KEY = "123"
+INSTALLED_APPS = [
+    'sr'
+]

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
+import os
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'test_settings'
 
 description = """
 Django settings resolver.
@@ -23,6 +26,8 @@ setup(
     zip_safe=False,
     include_package_data = False,
     package_data = {},
+    test_suite = 'nose.collector',
+    test_require = ['nose >= 1.3.0', 'django >= 1.3.0'],
     classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python",
