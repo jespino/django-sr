@@ -1,4 +1,4 @@
-from sr import sr as sr_func
+from .. import sr as sr_func
 
 from django import template
 register = template.Library()
@@ -12,8 +12,6 @@ try:
     from django_jinja.base import Library
     jinja_register = Library()
 
-    @jinja_register.global_function
-    def sr(key, *args, **kwargs):
-        return sr_func(key, *args, **kwargs)
+    jinja_register.global_function("sr", sr_func)
 except ImportError:
     pass
