@@ -27,7 +27,7 @@ setup(
     include_package_data = False,
     package_data = {},
     test_suite = 'nose.collector',
-    test_require = ['nose >= 1.3.0', 'django >= 1.3.0'],
+    tests_require = ['nose >= 1.3.0', 'django >= 1.3.0'],
     classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python",

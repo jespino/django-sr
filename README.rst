@@ -1,3 +1,10 @@
+.. image:: https://pypip.in/v/django-sr/badge.png
+    :target: https://crate.io/packages/django-sr
+
+.. image:: https://pypip.in/d/django-sr/badge.png
+    :target: https://crate.io/packages/django-sr
+
+
 Django Settings Resolver
 ========================
 
