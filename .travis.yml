@@ -6,7 +6,7 @@ install:
   - pip install -e . --use-mirrors
   - pip install coveralls --use-mirrors
 script:
-  - coverage run --source=moscowdjango,meetup manage.py test
+  - coverage run --source=sr setup.py test
 notifications:
   email:
     recipients:
