@@ -19,7 +19,7 @@ setup(
         "sr.templatetags",
     ],
     description = description.strip(),
-    install_requires=[],
+    install_requires=['django >= 1.3.0'],
     setup_requires = [
         'versiontools >= 1.8',
     ],
