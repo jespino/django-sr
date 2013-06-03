@@ -1,15 +1,17 @@
+Django Settings Resolver
+========================
+
 .. image:: https://travis-ci.org/jespino/django-sr.png?branch=master
     :target: https://travis-ci.org/jespino/django-sr
+
+.. image:: https://coveralls.io/repos/jespino/django-sr/badge.png?branch=master
+    :target: https://coveralls.io/r/jespino/django-sr?branch=master
 
 .. image:: https://pypip.in/v/django-sr/badge.png
     :target: https://crate.io/packages/django-sr
 
 .. image:: https://pypip.in/d/django-sr/badge.png
     :target: https://crate.io/packages/django-sr
-
-
-Django Settings Resolver
-========================
 
 Django settings resolver easy the definition of variables on the settings file
 identified by a "code".
