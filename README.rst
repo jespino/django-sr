@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/jespino/django-sr.png?branch=master
+    :target: https://travis-ci.org/jespino/django-sr
+
 .. image:: https://pypip.in/v/django-sr/badge.png
     :target: https://crate.io/packages/django-sr
 
