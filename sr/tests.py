@@ -1,20 +1,12 @@
 from django.utils import unittest
 from django.conf import settings
+from django.template import Template, Context
+from django_jinja.base import env
+
 from sr import sr
+from sr.templatetags.sr import *
 
 class TestSequenceFunctions(unittest.TestCase):
-
-    def setUp(self):
-        settings.SR = {
-            'test1': 'Test1',
-            'test2': {
-                'test3': 'Test3',
-            },
-            'test4': {
-                'test4': 'Test4 {0} {1}',
-            }
-        }
-
     def test_sr_not_valid_key(self):
         self.assertRaisesRegexp(Exception, "Not valid key: not-valid-key.not-valid-subkey", sr, "not-valid-key.not-valid-subkey")
         self.assertRaisesRegexp(Exception, "Not valid key: test1.not-valid-subkey", sr, "test1.not-valid-subkey")
@@ -28,5 +20,18 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(sr('test2.test3'), 'Test3')
         self.assertEqual(sr('test4.test4', 'testing', 'testing2'), 'Test4 testing testing2')
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_sr_django_templatetag(self):
+        result = Template("{% load sr %}{% sr 'test1' %}").render(Context())
+        self.assertEqual(result, 'Test1')
+        result = Template("{% load sr %}{% sr 'test2.test3' %}").render(Context())
+        self.assertEqual(result, 'Test3')
+        result = Template("{% load sr %}{% sr 'test4.test4' 'testing' 'testing2' %}").render(Context())
+        self.assertEqual(result, 'Test4 testing testing2')
+
+    def test_sr_django_jinja_global_function(self):
+        result = env.from_string("{{ sr('test1') }}").render()
+        self.assertEqual(result, 'Test1')
+        result = env.from_string("{{ sr('test2.test3') }}").render()
+        self.assertEqual(result, 'Test3')
+        result = env.from_string("{{ sr('test4.test4', 'testing', 'testing2') }}").render()
+        self.assertEqual(result, 'Test4 testing testing2')
