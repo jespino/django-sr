@@ -2,9 +2,9 @@
 
 from __future__ import unicode_literals
 
-import unittest
 import sys
 
+from django.utils import unittest
 from django.conf import settings
 from django.template import Template, Context
 from django_jinja.base import env
