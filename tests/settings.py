@@ -11,5 +11,8 @@ SR = {
     },
     'test4': {
         'test4': 'Test4 {0} {1}',
+    },
+    'test5': {
+        'test5': "<b>foo</b>",
     }
 }

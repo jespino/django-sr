@@ -5,6 +5,7 @@ if sys.version_info[0] > 2:
     basestring = (str,)
 
 from django.conf import settings
+from django.utils.safestring import mark_safe
 
 
 def sr(key, *args, **kwargs):
@@ -19,7 +20,8 @@ def sr(key, *args, **kwargs):
 
     if isinstance(sr_value, basestring):
         try:
-            return sr_value.format(*args, **kwargs)
+            sr_value = sr_value.format(*args, **kwargs)
+            sr_value = mark_safe(sr_value)
         except (ValueError, IndexError):
             raise ValueError("Not valid parameters for key {0}".format(key))
     return sr_value

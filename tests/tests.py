@@ -40,6 +40,14 @@ class TestSequenceFunctions(unittest.TestCase):
         result = Template("{% load sr %}{% sr 'test4.test4' 'testing' 'testing2' %}").render(Context())
         self.assertEqual(result, 'Test4 testing testing2')
 
+    def test_autoescape_django_templates(self):
+        result = Template("{% load sr %}{% sr 'test5.test5' %}").render(Context())
+        self.assertEqual(result, '<b>foo</b>')
+
+    def test_autoescape_jinja2_templates(self):
+        result = env.from_string("{{ sr('test5.test5') }}").render()
+        self.assertEqual(result, '<b>foo</b>')
+
     def test_sr_django_jinja_global_function(self):
         result = env.from_string("{{ sr('test1') }}").render()
         self.assertEqual(result, 'Test1')
