@@ -20,12 +20,12 @@ if sys.version_info[0] < 3:
 
 class TestSequenceFunctions(unittest.TestCase):
     def test_sr_not_valid_key(self):
-        self.assertRaisesRegex(Exception, "Not valid key: not-valid-key.not-valid-subkey", sr, "not-valid-key.not-valid-subkey")
-        self.assertRaisesRegex(Exception, "Not valid key: test1.not-valid-subkey", sr, "test1.not-valid-subkey")
-        self.assertRaisesRegex(Exception, "Not valid key: test2.test3.test4", sr, "test2.test3.test4")
+        self.assertRaisesRegex(KeyError, "Not valid key: not-valid-key.not-valid-subkey", sr, "not-valid-key.not-valid-subkey")
+        self.assertRaisesRegex(KeyError, "Not valid key: test1.not-valid-subkey", sr, "test1.not-valid-subkey")
+        self.assertRaisesRegex(KeyError, "Not valid key: test2.test3.test4", sr, "test2.test3.test4")
 
     def test_sr_not_valid_params(self):
-        self.assertRaisesRegex(Exception, "Not valid parameters for key test4.test4", sr, "test4.test4", "param")
+        self.assertRaisesRegex(ValueError, "Not valid parameters for key test4.test4", sr, "test4.test4", "param")
 
     def test_sr_valid_key(self):
         self.assertEqual(sr('test1'), 'Test1')
