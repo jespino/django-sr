@@ -13,16 +13,13 @@ setup(
     url = "https://github.com/jespino/django-sr",
     author = "Jesús Espino",
     author_email = "jespinog@gmail.com",
-    version=':versiontools:sr:',
+    version='0.2',
     packages = [
         "sr",
         "sr.templatetags",
     ],
     description = description.strip(),
     install_requires=['django >= 1.3.0'],
-    setup_requires = [
-        'versiontools >= 1.8',
-    ],
     zip_safe=False,
     include_package_data = False,
     package_data = {},
