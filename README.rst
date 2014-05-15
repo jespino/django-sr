@@ -77,8 +77,8 @@ And you can use it from jinja templates using the ``sr`` global function:
 
 .. code-block:: jinja
 
-    <span class="phone">{% sr('footer.phone') %}</span>
-    <span class="other">{% sr('footer.other_text', 'text') %}</span>
+    <span class="phone">{{ sr('footer.phone') }}</span>
+    <span class="other">{{ sr('footer.other_text', 'text') }}</span>
 
 
 For jinja template integration for django you need use `django-jinja <https://github.com/niwibe/django-jinja>`_
