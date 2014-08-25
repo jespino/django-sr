@@ -1,8 +1,7 @@
-from .. import sr as sr_func
-
 from django import template
 register = template.Library()
 
+from .. import sr as sr_func
 
 @register.simple_tag(name='sr')
 def sr_tag(key, *args, **kwargs):
