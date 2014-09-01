@@ -13,7 +13,7 @@ setup(
     url = "https://github.com/jespino/django-sr",
     author = "Jesús Espino",
     author_email = "jespinog@gmail.com",
-    version='0.0.3',
+    version='0.0.4',
     packages = [
         "sr",
         "sr.templatetags",
